@@ -10,9 +10,9 @@ export default class Todo extends Component{
 
         this.state = {
             todo: {},
-            title: "",
-            description: "",
-            // todoInfo: {}
+            todoInfo: {},
+            nTitle: "",
+            nDescription: "",
         }
 
         this.titleChange = this.titleChange.bind(this);
@@ -25,7 +25,6 @@ export default class Todo extends Component{
         this.setState({
             title: event.target.value,
         });
-        // console.log(event.target.value)
       }
 
     descriptionChange(event) {
@@ -36,27 +35,26 @@ export default class Todo extends Component{
     }
     
     handleSubmit(event) {
-        const object = {}
+        // const {title, description} = this.state.todo
+        // const {todoInfo} = this.state
+        // const {nTitle, nDescription} = this.state
+        // var newTitle = ""
+        // var newDescription = ""
 
-        //em vez de setar object.title ou algo assim, porque nao usar o setState pra alterar?
-        //ai dps eu pego as variaveis e jogo no objeto... ou entao olhar o q tem dentro do objeto todo{}
+        // if(title !== null){
+        //     newTitle = title
+        //     this.setState({todoInfo: {nTitle: newTitle}})
+        // }
 
-        if(this.state.title !== null){
-            object.title = this.state.title
-            // this.state.todoInfo.title = event
-        }
-        if(this.state.description !== null){
-            object.description = this.state.description
-        }
+        // if(description !== null){
+        //     newDescription = description
+        //     this.setState({todoInfo: {nDescription: newDescription}})
+        // }
 
-        if(title !== null){
-            object.title = title
-        }
-        if(description !== null){
-            object.description = description
-        }
-
-        this.update(object)
+        // console.log(todoInfo)
+        // this.setState({todoInfo: undefined})
+        event.preventDefault()
+        // this.update(todoInfo)
     }
     
     async componentDidMount(){
@@ -71,10 +69,11 @@ export default class Todo extends Component{
 
         try {
             await Api.put(`/todo/${id}`, object)
-            console.log("Registro alterado com sucesso!")
+            // console.log("Registro alterado com sucesso!")
         } catch (err) {
-            console.log("Erro na requisição!")
+            // console.log("Erro na requisição!")
         }
+        // event.preventDefault(event)
         Link.toString("/")
     }
 
@@ -92,14 +91,15 @@ export default class Todo extends Component{
 
     render(){
         const {todo} = this.state
+        // console.log(todo)
         return ( 
             <div className="todo-info">
                 <article>
                     <h1>{todo.title}</h1>
                     <p>{todo.description}</p>
                     <form onSubmit={this.handleSubmit}>
-                        <input name="title" type="text" placeholder="Titulo" /*onChange={this.titleChange}/* /*value={this.state.value}*//>
-                        <input name="description" type="text" placeholder="Descrição" /*onChange={this.descriptionChange}*/ /*value={this.state.value}*/ />
+                        <input name="title" type="text" placeholder="Titulo" value={this.state.value} onInput={this.titleChange} />
+                        <input name="description" type="text" placeholder="Descrição" value={this.state.value} onInput={this.descriptionChange} />
                         <input type="submit" value="Alterar Informações"/>
                     </form>
                     <div className="apagar-dado">
