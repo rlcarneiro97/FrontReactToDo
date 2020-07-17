@@ -12,49 +12,49 @@ export default class Main extends Component{
             products: [],
             productInfo: {},
             page: 1,
-            title: "",
-            description: "",
-            url: "",
+        //     title: "",
+        //     description: "",
+        //     url: "",
         }
 
-        this.titleChange = this.titleChange.bind(this);
-        this.descriptionChange = this.descriptionChange.bind(this);
-        this.urlChange = this.urlChange.bind(this);
+        // this.titleChange = this.titleChange.bind(this);
+        // this.descriptionChange = this.descriptionChange.bind(this);
+        // this.urlChange = this.urlChange.bind(this);
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-     titleChange(event) {
-        this.setState({
-            title: event.target.value,
-        });
-      }
+    //  titleChange(event) {
+    //     this.setState({
+    //         title: event.target.value,
+    //     });
+    //   }
 
-    descriptionChange(event) {
-        this.setState({
-            description: event.target.value,
-        });
-    }
+    // descriptionChange(event) {
+    //     this.setState({
+    //         description: event.target.value,
+    //     });
+    // }
     
-    urlChange(event) {
-        this.setState({
-            url: event.target.value,
-        });
-    }
+    // urlChange(event) {
+    //     this.setState({
+    //         url: event.target.value,
+    //     });
+    // }
     
-    handleSubmit(event) {
-        const object = {
-            title: this.state.title,
-            description: this.state.description,
-            url: this.state.url,
-        }
-        const {title, description, url} = object
+    // handleSubmit(event) {
+    //     const object = {
+    //         title: this.state.title,
+    //         description: this.state.description,
+    //         url: this.state.url,
+    //     }
+    //     const {title, description, url} = object
         
-        if(title === "" || description === "" || url === ""){
-            alert("Preencha todos os campos para fazer a adição!")
-        }
-        this.create(object)
-    }
+    //     if(title === "" || description === "" || url === ""){
+    //         alert("Preencha todos os campos para fazer a adição!")
+    //     }
+    //     this.create(object)
+    // }
 
     componentDidMount(){
         this.loadProducts()
@@ -68,17 +68,17 @@ export default class Main extends Component{
         })
     }
 
-    create = async(object) => {
-        try {
-            await api.post("/products", object)
-            console.log("Dados Inseridos!")
-            // alert("Registro criado com sucesso!")
-        } catch (error) {
-            console.log("Dados não Inseridos!")
-            // alert("Erro na requisição!")
-        }
-        await api.get("/")
-    }
+    // create = async(object) => {
+    //     try {
+    //         await api.post("/products", object)
+    //         console.log("Dados Inseridos!")
+    //         // alert("Registro criado com sucesso!")
+    //     } catch (error) {
+    //         console.log("Dados não Inseridos!")
+    //         // alert("Erro na requisição!")
+    //     }
+    //     await api.get("/")
+    // }
 
     prevPage = () => {
         const {page} = this.state
@@ -101,18 +101,19 @@ export default class Main extends Component{
     }
 
     render(){
+
         const { products, page, productInfo } = this.state
 
         return (
             <div className="product-list">
-                <div className="add-ferramenta">
+                {/* <div className="add-ferramenta">
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" placeholder="Titulo" value={this.state.value} onChange={this.titleChange} />
                         <input type="text" placeholder="Descrição" value={this.state.value} onChange={this.descriptionChange} />
                         <input type="text" placeholder="Url" value={this.state.value} onChange={this.urlChange} />
                         <input type="submit" value="Adicionar Nova Ferramenta" />
                     </form>
-                </div>
+                </div> */}
                 {products.map(product => (
                     <article key={product._id}>
                         <strong>{product.title}</strong>
