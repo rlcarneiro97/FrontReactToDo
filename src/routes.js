@@ -8,8 +8,8 @@ const Routes = () => (
     <BrowserRouter>
         <Switch>
             <Route exact path="/" component={Main}/>
-            <Route path="/todo/create" component={TodoCreate}/>
-            <Route path="/todo/details/:id" component={Todo}/>
+            <Route path="/todo" component={TodoCreate}/>
+            <Route path="/details/todo:id" component={Todo}/>
         </Switch>
     </BrowserRouter>
 )
