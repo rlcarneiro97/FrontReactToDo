@@ -1,9 +1,9 @@
 import React, { Component} from "react"
-import api from "../../services/api"
+import Api from "../../services/api"
 import "./style.css"
 import {Link} from "react-router-dom"
 
-export default class Main extends Component{
+export default class TodoCreate extends Component{
 
     constructor(){
         super()
@@ -47,7 +47,7 @@ export default class Main extends Component{
 
     create = async(object) => {
         try {
-            await api.post("/todo", object)
+            await Api.post("/todo", object)
             console.log("Dados Inseridos!")
             // alert("Registro criado com sucesso!")
         } catch (error) {
@@ -61,17 +61,17 @@ export default class Main extends Component{
     render(){
 
         return(
-
-            <div className="add-ferramenta">
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder="Titulo" value={this.state.value} onChange={this.titleChange} />
-                    <input type="text" placeholder="Descrição" value={this.state.value} onChange={this.descriptionChange} />
-                    <input type="submit" value="Adicionar Novo ToDo" />
-                    {/* testar se funciona sem o page=1 */}
-                    <Link to={"/todo/?page=1"}>Voltar</Link>
-                </form>
+            <div className="todo-create">
+                <article>
+                    <form onSubmit={this.handleSubmit}>
+                        <input type="text" placeholder="Titulo" value={this.state.value} onChange={this.titleChange} />
+                        <input type="text" placeholder="Descrição" value={this.state.value} onChange={this.descriptionChange} />
+                        <input type="submit" value="Adicionar Novo ToDo" />
+                        {/* testar se funciona sem o page=1 */}
+                        <Link to={"/todo/?page=1"}>Voltar</Link>
+                    </form>
+                </article>
             </div>
-
         )
 
     }

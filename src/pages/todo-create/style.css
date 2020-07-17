@@ -1,10 +1,10 @@
-.todo-info{
+.todo-create{
     max-width: 700px;
     margin: 20px auto 0;
     padding: 0 20px;
 }
 
-.todo-info form input[type=text]{
+.todo-create input[type=text]{
     width: 100%;
     height: 35px;
     font-size: 16px;
@@ -20,15 +20,15 @@
     align-items: center;
 }
 
-.todo-info form input[type=submit]{
+.todo-create input[type=submit]{
     width: 100%;
     height: 42px;
     border-radius: 5px;
-    border: 2px solid #FF9505;
+    border: 2px solid #2BA84A;
     background: none;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 10px;
-    color: #FF9505;
+    color: #2BA84A;
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
@@ -39,34 +39,12 @@
     transition: all 0.2s;
 }
 
-.todo-info form input[type=submit]:hover{
-    background: #FF9505;
+.todo-create input[type=submit]:hover{
+    background: #2BA84A;
     color: #ffffff
 }
 
-.todo-info .apagar-dado a{
-    height: 42px;
-    border-radius: 5px;
-    border: 2px solid #BD1E1E;
-    background: none;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    color: #BD1E1E;
-    font-weight: bold;
-    font-size: 16px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s;
-}
-
-.product-info .apagar-dado a:hover{
-    background: #BD1E1E;
-    color: #ffffff
-}
-
-.product-info article{
+.todo-create article{
     background: #ffffff;
     border: 1px solid #dddddd;
     border-radius: 5px;
@@ -74,14 +52,14 @@
     margin-bottom: 20px;
 }
 
-.product-info article p{
+/* .todo-list article p{
     font-size: 16px;
     color: #999999;
     margin-top: 5px;
     line-height: 24px;
-}
+} */
 
-.product-info article a{
+.todo-create article a{
     height: 42px;
     border-radius: 5px;
     border: 2px solid #2B50AA;
@@ -97,7 +75,7 @@
     transition: all 0.2s;
 }
 
-.product-info article a:hover{
+.todo-create article a:hover{
     background: #2B50AA;
     color: #ffffff
 }

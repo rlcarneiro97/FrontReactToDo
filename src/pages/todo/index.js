@@ -3,21 +3,19 @@ import Api from "../../services/api"
 import {Link} from "react-router-dom"
 import "./style.css"
 
-export default class Product extends Component{
+export default class Todo extends Component{
     
     constructor(){
         super()
 
         this.state = {
-            product: {},
+            todo: {},
             title: "",
             description: "",
-            url: "",
         }
 
         this.titleChange = this.titleChange.bind(this);
         this.descriptionChange = this.descriptionChange.bind(this);
-        this.urlChange = this.urlChange.bind(this);
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -34,12 +32,6 @@ export default class Product extends Component{
         });
     }
     
-    urlChange(event) {
-        this.setState({
-            url: event.target.value,
-        });
-    }
-    
     handleSubmit(event) {
         const object = {}
 
@@ -49,9 +41,6 @@ export default class Product extends Component{
         if(this.state.description != ""){
             object.description = this.state.description
         }
-        if(this.state.url != ""){
-            object.url = this.state.url
-        }
 
         this.update(object)
         // event.preventDefault();
@@ -59,15 +48,15 @@ export default class Product extends Component{
     
     async componentDidMount(){
         const {id} = this.props.match.params
-        const response = await Api.get(`/products/${id}`)
-        this.setState({product: response.data})
+        const response = await Api.get(`/todo/${id}`)
+        this.setState({todo: response.data})
     }
 
     update = async(object) => {
         const {id} = this.props.match.params
 
         try {
-            await Api.put(`/products/${id}`, object)
+            await Api.put(`/todo/${id}`, object)
             console.log("Registro alterado com sucesso!")
         } catch (err) {
             console.log("Erro na requisição!")
@@ -79,7 +68,7 @@ export default class Product extends Component{
         const {id} = this.props.match.params
 
         try {
-            await Api.delete(`/products/${id}`)
+            await Api.delete(`/todo/${id}`)
             
         } catch (err) {
             console.log("Erro na requisição!")
@@ -88,21 +77,15 @@ export default class Product extends Component{
     }
 
     render(){
-        const {product} = this.state
+        const {todo} = this.state
         return ( 
-            <div className="product-info">
+            <div className="todo-info">
                 <article>
-                    <h1>{product.title}</h1>
-                    <p>{product.description}</p>
-                    <div className="url">
-                        <a target="_blank" href={product.url}>
-                            Ir para: {product.url}
-                        </a>
-                    </div>
+                    <h1>{todo.title}</h1>
+                    <p>{todo.description}</p>
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" placeholder="Titulo" value={this.state.value} onChange={this.titleChange} />
                         <input type="text" placeholder="Descrição" value={this.state.value} onChange={this.descriptionChange} />
-                        <input type="text" placeholder="Url" value={this.state.value} onChange={this.urlChange} />
                         <input type="submit" value="Alterar Informações"/>
                     </form>
                     <div className="apagar-dado">
