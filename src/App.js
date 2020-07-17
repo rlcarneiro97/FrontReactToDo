@@ -7,7 +7,7 @@ const App = () => (
   <div className="App">
       <Header/>
       <Routes/>
-    </div>
+  </div>
 )
 
 export default App;

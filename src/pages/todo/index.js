@@ -61,7 +61,8 @@ export default class Todo extends Component{
         } catch (err) {
             console.log("Erro na requisição!")
         }
-        await Api.get("/")
+        Link.toString("/")
+        // await Api.get("/")
     }
 
     delete = async() => {
@@ -73,7 +74,8 @@ export default class Todo extends Component{
         } catch (err) {
             console.log("Erro na requisição!")
         }
-        await Api.get("/")
+        Link.toString("/")
+        // await Api.get("/")
     }
 
     render(){

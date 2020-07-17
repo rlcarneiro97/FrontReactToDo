@@ -49,13 +49,13 @@ export default class TodoCreate extends Component{
         try {
             await Api.post("/todo", object)
             console.log("Dados Inseridos!")
-            // alert("Registro criado com sucesso!")
+            alert("Registro criado com sucesso!")
         } catch (error) {
             console.log("Dados não Inseridos!")
-            // alert("Erro na requisição!")
+            alert("Erro na requisição!")
         }
         //falta testar isso
-        Link.toString("/todo/?page=1")
+        Link.toString("/")
     }
 
     render(){
@@ -68,7 +68,7 @@ export default class TodoCreate extends Component{
                         <input type="text" placeholder="Descrição" value={this.state.value} onChange={this.descriptionChange} />
                         <input type="submit" value="Adicionar Novo ToDo" />
                         {/* testar se funciona sem o page=1 */}
-                        <Link to={"/todo/?page=1"}>Voltar</Link>
+                        <Link to={"/"}>Voltar</Link>
                     </form>
                 </article>
             </div>
