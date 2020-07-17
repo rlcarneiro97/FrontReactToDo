@@ -101,7 +101,6 @@ export default class Main extends Component{
     }
 
     render(){
-
         const { products, page, productInfo } = this.state
 
         return (
