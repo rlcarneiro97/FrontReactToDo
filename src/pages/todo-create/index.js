@@ -33,33 +33,26 @@ export default class TodoCreate extends Component{
     }
     
     // metodo pra observar se há um submit
-    async handleSubmit(event) {
-        // const {title, description} = this.state
-        // const object = {title: "", description: ""}
+    handleSubmit(event) {
+        const {title, description} = this.state
+        const object = {}
 
         // trata a entrada de dados no create
-        // if(title !== "" && description !== ""){
-        //     object.title = title
-        //     object.description = description
-        //     // this.create(JSON.stringify(object))
-        //     // this.create(object)
-        // }else{
-        //     alert("Por favor, Preencha Todos os Campos!")
-        // }
-        
-        // event.preventDefault(event)
-
-        // alert(title+" | "+description)
-        // alert(JSON.stringify(object))
-        const object = {title: "dale", description: "dele"}
-        await Api.post("/todo/store/", object)
+        if(title !== "" && description !== ""){
+            object.title = title
+            object.description = description
+            this.create(object)
+        }else{
+            alert("Por favor, Preencha Todos os Campos!")
+        }
+        event.preventDefault(event)
     }
 
     // metodo pra "criar" um objeto
-    create = async() => {
-        const object = {title: "dale", description: "dele"}
+    create = async(object) => {
         await Api.post("/todo/store/", object)
-        // Link.toString("/")
+        alert("Adicionado com Sucesso!")
+        this.props.history.push('/');
     }
 
     // metodo para renderizar a pagina

@@ -12,6 +12,13 @@ export default class Todo extends Component{
             todo: {},
         }
     }
+
+    // metodo pra preencher o objeto todo
+    async componentDidMount(){
+        const {id} = this.props.match.params
+        const response = await Api.get(`/todo/show/${id}`)
+        this.setState({todo: response.data})
+    }
     
     // metodo para "deletar" o objeto
     delete = async() => {
@@ -19,13 +26,6 @@ export default class Todo extends Component{
         await Api.delete(`/todo/destroy/${id}`)
         alert("Deletado com Sucesso!")
         this.props.history.push('/');
-    }
-
-    // metodo pra preencher o objeto todo
-    async componentDidMount(){
-        const {id} = this.props.match.params
-        const response = await Api.get(`/todo/show/${id}`)
-        this.setState({todo: response.data})
     }
 
     // metodo para renderizar a pagina
