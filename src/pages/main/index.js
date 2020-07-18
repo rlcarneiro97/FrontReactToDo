@@ -22,7 +22,7 @@ export default class Main extends Component{
 
     // carregando pagina com todos objetos
     loadTodos = async(page = 1) => {
-        const response = await Api.get(`/todo?page=${page}`)
+        const response = await Api.get(`/todo/index?page=${page}`)
         const {docs, ...todoInfo} = response.data
         this.setState({
             todos: docs, todoInfo, page
@@ -57,12 +57,12 @@ export default class Main extends Component{
         return (
             <div className="todo-list">
                 <div className="todo-add">
-                    <Link to={"/todo"}>Criar ToDo</Link>
+                    <Link to={"/todo/store/"}>Criar ToDo</Link>
                 </div>
                 {todos.map(todo => (
                     <article key={todo._id}>
                         <strong>{todo.title}</strong>
-                        <Link to={`/details/todo${todo._id}`}>Ver Detalhes</Link>
+                        <Link to={`/todo/show/${todo._id}`}>Ver Detalhes</Link>
                     </article>
                 ))}
                 <div className="actions">

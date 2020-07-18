@@ -19,20 +19,14 @@ export default class Todo extends Component{
     // metodo pra preencher o objeto todo
     async componentDidMount(){
         const {id} = this.props.match.params
-        const response = await Api.get(`/todo/${id}`)
+        const response = await Api.get(`/todo/show/${id}`)
         this.setState({todo: response.data})
     }
 
     // metodo para "deletar" o objeto
     delete = async() => {
         const {id} = this.props.match.params
-
-        try {
-            await Api.delete(`/todo/${id}`)
-            
-        } catch (err) {
-            console.log("Erro na requisição!")
-        }
+        await Api.delete(`/todo/destroy/${id}`)
         Link.toString("/")
     }
 
@@ -45,7 +39,7 @@ export default class Todo extends Component{
                     <h1>{todo.title}</h1>
                     <p>{todo.description}</p>
                     <div className="atualizar-dado">
-                        <Link to={`/update/todo${todo._id}`}>Alterar Informações</Link>
+                        <Link to={`/todo/update/${todo._id}`}>Alterar Informações</Link>
                     </div>
                     <div className="apagar-dado">
                         <Link onClick={this.delete} to={"/"}>Apagar Registro</Link>

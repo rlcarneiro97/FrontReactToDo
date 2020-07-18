@@ -33,20 +33,33 @@ export default class TodoCreate extends Component{
     }
     
     // metodo pra observar se há um submit
-    handleSubmit(event) {
-        const object = {}
-        this.create(object)
+    async handleSubmit(event) {
+        // const {title, description} = this.state
+        // const object = {title: "", description: ""}
+
+        // trata a entrada de dados no create
+        // if(title !== "" && description !== ""){
+        //     object.title = title
+        //     object.description = description
+        //     // this.create(JSON.stringify(object))
+        //     // this.create(object)
+        // }else{
+        //     alert("Por favor, Preencha Todos os Campos!")
+        // }
+        
+        // event.preventDefault(event)
+
+        // alert(title+" | "+description)
+        // alert(JSON.stringify(object))
+        const object = {title: "dale", description: "dele"}
+        await Api.post("/todo/store/", object)
     }
 
     // metodo pra "criar" um objeto
-    create = async(object) => {
-        try {
-            await Api.post("/todo", object)
-        } catch (error) {
-            console.log("Dados não Inseridos!")
-        }
-        //falta testar isso
-        Link.toString("/")
+    create = async() => {
+        const object = {title: "dale", description: "dele"}
+        await Api.post("/todo/store/", object)
+        // Link.toString("/")
     }
 
     // metodo para renderizar a pagina
@@ -55,8 +68,8 @@ export default class TodoCreate extends Component{
             <div className="todo-create">
                 <article>
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text" placeholder="Título" value={this.state.value} onChange={this.titleChange} />
-                        <textarea type="text" placeholder="Descrição" value={this.state.value} onChange={this.descriptionChange} />
+                        <input type="text" placeholder="Título" value={this.state.value} onInput={this.titleChange} />
+                        <textarea type="text" placeholder="Descrição" value={this.state.value} onInput={this.descriptionChange} />
                         <input type="submit" value="Adicionar Novo TODO" />
                         <Link to={"/"}>Voltar</Link>
                     </form>
