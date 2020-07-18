@@ -3,7 +3,7 @@ import Api from "../../services/api"
 import "./style.css"
 import {Link} from "react-router-dom"
 
-export default class TodoCreate extends Component{
+export default class TodoUpdate extends Component{
 
     constructor(){
         super()
@@ -61,12 +61,12 @@ export default class TodoCreate extends Component{
     render(){
 
         return(
-            <div className="todo-create">
+            <div className="todo-update">
                 <article>
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" placeholder="Titulo" value={this.state.value} onChange={this.titleChange} />
                         <input type="text" placeholder="Descrição" value={this.state.value} onChange={this.descriptionChange} />
-                        <input type="submit" value="Adicionar Novo TODO" />
+                        <input type="submit" value="Alterar TODO" />
                         {/* testar se funciona sem o page=1 */}
                         <Link to={"/"}>Voltar</Link>
                     </form>

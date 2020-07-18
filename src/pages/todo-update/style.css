@@ -1,11 +1,11 @@
-.todo-create{
+.todo-update{
     max-width: 700px;
     margin: 20px auto 0;
     padding: 0 20px;
 }
 
 /* formatacao dos campos do form */
-.todo-create input[type=text]{
+.todo-update input[type=text]{
     width: 100%;
     height: 35px;
     font-size: 16px;
@@ -22,15 +22,15 @@
 }
 
 /* formatacao do botao do form  */
-.todo-create input[type=submit]{
+.todo-update input[type=submit]{
     width: 100%;
     height: 42px;
     border-radius: 5px;
-    border: 2px solid #2BA84A;
+    border: 2px solid #FF9505;
     background: none;
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #2BA84A;
+    color: #FF9505;
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
@@ -41,13 +41,13 @@
     transition: all 0.2s;
 }
 /* formatacao da cor da transicao do botao form  */
-.todo-create input[type=submit]:hover{
-    background: #2BA84A;
+.todo-update input[type=submit]:hover{
+    background: #FF9505;
     color: #ffffff
 }
 
 /* borda da tela */
-.todo-create article{
+.todo-update article{
     background: #ffffff;
     border: 1px solid #dddddd;
     border-radius: 5px;
@@ -56,7 +56,7 @@
 }
 
 /* configuracao de botoes */
-.todo-create article a{
+.todo-update article a{
     height: 42px;
     border-radius: 5px;
     border: 2px solid #2B50AA;
@@ -73,7 +73,7 @@
 }
 
 /* efeito de transicao da cor dos botoes */
-.todo-create article a:hover{
+.todo-update article a:hover{
     background: #2B50AA;
     color: #ffffff
 }

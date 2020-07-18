@@ -97,11 +97,14 @@ export default class Todo extends Component{
                 <article>
                     <h1>{todo.title}</h1>
                     <p>{todo.description}</p>
-                    <form onSubmit={this.handleSubmit}>
+                    {/* <form onSubmit={this.handleSubmit}>
                         <input name="title" type="text" placeholder="Titulo" value={this.state.value} onInput={this.titleChange} />
                         <input name="description" type="text" placeholder="Descrição" value={this.state.value} onInput={this.descriptionChange} />
                         <input type="submit" value="Alterar Informações"/>
-                    </form>
+                    </form> */}
+                    <div className="atualizar-dado">
+                        <Link to={`/update/todo${todo._id}`}>Alterar Informações</Link>
+                    </div>
                     <div className="apagar-dado">
                         <Link onClick={this.delete} to={"/"}>Apagar Registro</Link>
                     </div>
