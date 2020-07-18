@@ -55,8 +55,8 @@ export default class TodoCreate extends Component{
             <div className="todo-create">
                 <article>
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text" placeholder="Titulo" value={this.state.value} onChange={this.titleChange} />
-                        <input type="text" placeholder="Descrição" value={this.state.value} onChange={this.descriptionChange} />
+                        <input type="text" placeholder="Título" value={this.state.value} onChange={this.titleChange} />
+                        <textarea type="text" placeholder="Descrição" value={this.state.value} onChange={this.descriptionChange} />
                         <input type="submit" value="Adicionar Novo TODO" />
                         <Link to={"/"}>Voltar</Link>
                     </form>
@@ -64,4 +64,5 @@ export default class TodoCreate extends Component{
             </div>
         )
     }
+
 }

@@ -4,7 +4,7 @@
     padding: 0 20px;
 }
 
-/* formatacao dos campos do form */
+/* formatacao do campo title do form */
 .todo-update input[type=text]{
     width: 100%;
     height: 35px;
@@ -21,7 +21,7 @@
     align-items: center;
 }
 
-/* formatacao dos campos do form */
+/* formatacao do campo description do form */
 .todo-update textarea{
     width: 100%;
     height: 150px;

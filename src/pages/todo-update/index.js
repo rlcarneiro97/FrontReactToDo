@@ -66,8 +66,8 @@ export default class TodoUpdate extends Component{
             <div className="todo-update">
                 <article>
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text" placeholder="Titulo" value={todo.title}/*value={this.state.value}*/ onChange={this.titleChange} />
-                        <textarea type="text" placeholder="Descrição" value={todo.description}/*value={this.state.value}*/ onChange={this.descriptionChange} />
+                        <input type="text" value={todo.title}/*value={this.state.value}*/ onChange={this.titleChange} />
+                        <textarea type="text" value={todo.description}/*value={this.state.value}*/ onChange={this.descriptionChange} />
                         <input type="submit" value="Alterar TODO" />
                         <Link to={`/details/todo${todo._id}`}>Voltar</Link>
                     </form>
