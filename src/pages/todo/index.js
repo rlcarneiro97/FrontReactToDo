@@ -2,9 +2,9 @@ import React, {Component} from "react"
 import Api from "../../services/api"
 import {Link} from "react-router-dom"
 import "./style.css"
+import { toast } from 'react-toastify';
 
-export default class Todo extends Component{
-    
+export default class Todo extends Component{   
     constructor(){
         super()
 
@@ -12,7 +12,7 @@ export default class Todo extends Component{
             todo: {},
         }
     }
-
+    
     // metodo pra preencher o objeto todo
     async componentDidMount(){
         const {id} = this.props.match.params
@@ -24,7 +24,8 @@ export default class Todo extends Component{
     delete = async() => {
         const {id} = this.props.match.params
         await Api.delete(`/todo/destroy/${id}`)
-        alert("Deletado com Sucesso!")
+        // alert("Deletado com Sucesso!")
+        toast.success("Deletado com Sucesso!")
         this.props.history.push('/');
     }
 
@@ -40,7 +41,7 @@ export default class Todo extends Component{
                         <Link to={`/todo/update/${todo._id}`}>Alterar Informações</Link>
                     </div>
                     <div className="apagar-dado">
-                        <Link onClick={this.delete} /*to={"/"}*/>Apagar Registro</Link>
+                        <Link onClick={this.delete}>Apagar Registro</Link>
                     </div>
                     <Link to={"/"}>Voltar</Link>
                 </article>

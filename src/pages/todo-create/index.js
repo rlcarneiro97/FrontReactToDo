@@ -2,6 +2,7 @@ import React, { Component} from "react"
 import Api from "../../services/api"
 import "./style.css"
 import {Link} from "react-router-dom"
+import { toast } from 'react-toastify';
 
 export default class TodoCreate extends Component{
 
@@ -43,7 +44,7 @@ export default class TodoCreate extends Component{
             object.description = description
             this.create(object)
         }else{
-            alert("Por favor, Preencha Todos os Campos!")
+            toast.error("Por favor, Preencha Todos os Campos!")
         }
         event.preventDefault(event)
     }
@@ -51,7 +52,7 @@ export default class TodoCreate extends Component{
     // metodo pra "criar" um objeto
     create = async(object) => {
         await Api.post("/todo/store/", object)
-        alert("Adicionado com Sucesso!")
+        toast.success("Adicionado com Sucesso!")
         this.props.history.push('/');
     }
 
@@ -70,5 +71,4 @@ export default class TodoCreate extends Component{
             </div>
         )
     }
-
 }

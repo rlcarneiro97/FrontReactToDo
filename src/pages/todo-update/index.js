@@ -2,9 +2,9 @@ import React, { Component} from "react"
 import Api from "../../services/api"
 import "./style.css"
 import {Link} from "react-router-dom"
+import { toast } from 'react-toastify';
 
 export default class TodoUpdate extends Component{
-
     constructor(){
         super()
 
@@ -65,9 +65,8 @@ export default class TodoUpdate extends Component{
     update = async(object) => {
         const {id} = this.props.match.params
         await Api.put(`/todo/update/${id}`, object)
-        alert("Atualizado com Sucesso!")
+        toast.success("Atualizado com Sucesso!")
         this.props.history.push(`/todo/show/${id}`);
-        // this.props.history.push("/");
     }
 
     // metodo para renderizar a pagina

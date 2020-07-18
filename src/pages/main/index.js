@@ -57,7 +57,7 @@ export default class Main extends Component{
         return (
             <div className="todo-list">
                 <div className="todo-add">
-                    <Link to={"/todo/store/"}>Criar ToDo</Link>
+                    <Link to={"/todo/store/"}>Criar TODO</Link>
                 </div>
                 {todos.map(todo => (
                     <article key={todo._id}>
