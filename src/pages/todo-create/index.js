@@ -15,51 +15,42 @@ export default class TodoCreate extends Component{
 
         this.titleChange = this.titleChange.bind(this);
         this.descriptionChange = this.descriptionChange.bind(this);
-
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // metodo pra observar mudancas no titulo
     titleChange(event) {
         this.setState({
             title: event.target.value,
         });
       }
 
+    // metodo pra observar mudancas na descricao
     descriptionChange(event) {
         this.setState({
             description: event.target.value,
         });
     }
     
+    // metodo pra observar se há um submit
     handleSubmit(event) {
-        const object = {
-            title: this.state.title,
-            description: this.state.description,
-        }
-        const {title, description} = object
-        
-        if(title === "" || description === ""){
-            alert("Preencha todos os campos para fazer a adição!")
-        }
-        //mudar essas condicional com a chamada do create dps..
+        const object = {}
         this.create(object)
     }
 
+    // metodo pra "criar" um objeto
     create = async(object) => {
         try {
             await Api.post("/todo", object)
-            console.log("Dados Inseridos!")
-            alert("Registro criado com sucesso!")
         } catch (error) {
             console.log("Dados não Inseridos!")
-            alert("Erro na requisição!")
         }
         //falta testar isso
         Link.toString("/")
     }
 
+    // metodo para renderizar a pagina
     render(){
-
         return(
             <div className="todo-create">
                 <article>
@@ -67,13 +58,10 @@ export default class TodoCreate extends Component{
                         <input type="text" placeholder="Titulo" value={this.state.value} onChange={this.titleChange} />
                         <input type="text" placeholder="Descrição" value={this.state.value} onChange={this.descriptionChange} />
                         <input type="submit" value="Adicionar Novo TODO" />
-                        {/* testar se funciona sem o page=1 */}
                         <Link to={"/"}>Voltar</Link>
                     </form>
                 </article>
             </div>
         )
-
     }
-
 }

@@ -15,10 +15,12 @@ export default class Main extends Component{
         }
     }
 
+    // metodo pra preencher o objeto todo
     componentDidMount(){
         this.loadTodos()
     }
 
+    // carregando pagina com todos objetos
     loadTodos = async(page = 1) => {
         const response = await Api.get(`/todo?page=${page}`)
         const {docs, ...todoInfo} = response.data
@@ -27,6 +29,7 @@ export default class Main extends Component{
         })
     }
 
+    // ir pra outra pagina, se houver
     prevPage = () => {
         const {page} = this.state
 
@@ -37,6 +40,7 @@ export default class Main extends Component{
         this.loadTodos(pageNumber)
     }
 
+    // voltar pra outra pagina, se houver
     nextPage = () => {
         const {page, todoInfo} = this.state
 
@@ -47,9 +51,9 @@ export default class Main extends Component{
         this.loadTodos(pageNumber)
     }
 
+    // metodo para renderizar a pagina
     render(){
         const { todos, page, todoInfo } = this.state
-
         return (
             <div className="todo-list">
                 <div className="todo-add">

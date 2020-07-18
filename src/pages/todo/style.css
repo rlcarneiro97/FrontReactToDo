@@ -13,12 +13,17 @@
     margin-bottom: 20px;
 }
 
-/* modifica a descricao */
+/* modifica a descricao*/
 .todo-info article p{
     font-size: 16px;
     color: #999999;
-    margin-top: 5px;
     line-height: 24px;
+    /* text-indent: 3px; */
+    text-align: justify;
+    border: 1px dotted #dddddd;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 /* configuracao de botoes */
