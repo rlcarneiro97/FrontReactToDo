@@ -10,7 +10,7 @@
     height: 35px;
     font-size: 16px;
     font-weight: bold;
-    border: 2px solid #2B50AA;
+    border: 2px solid #324A5F;
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -28,7 +28,7 @@
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    border: 2px solid #2B50AA;
+    border: 2px solid #324A5F;
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -68,10 +68,10 @@
 .todo-update article a{
     height: 42px;
     border-radius: 5px;
-    border: 2px solid #2B50AA;
+    border: 2px solid #324A5F;
     background: none;
     margin-top: 10px;
-    color: #2B50AA;
+    color: #324A5F;
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
@@ -83,6 +83,6 @@
 
 /* efeito de transicao da cor dos botoes */
 .todo-update article a:hover{
-    background: #2B50AA;
+    background: #324A5F;
     color: #ffffff
 }
