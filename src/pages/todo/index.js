@@ -25,7 +25,7 @@ export default class Todo extends Component{
         const {id} = this.props.match.params
         await Api.delete(`/todo/destroy/${id}`)
         // alert("Deletado com Sucesso!")
-        toast.success("Deletado com Sucesso!")
+        toast.success("Deletado com Sucesso!", {position: toast.POSITION.BOTTOM_CENTER})
         this.props.history.push('/');
     }
 

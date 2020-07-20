@@ -65,7 +65,7 @@ export default class TodoUpdate extends Component{
     update = async(object) => {
         const {id} = this.props.match.params
         await Api.put(`/todo/update/${id}`, object)
-        toast.success("Atualizado com Sucesso!")
+        toast.success("Atualizado com Sucesso!", {position: toast.POSITION.BOTTOM_CENTER})
         this.props.history.push(`/todo/show/${id}`);
     }
 

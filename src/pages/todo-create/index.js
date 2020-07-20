@@ -44,7 +44,7 @@ export default class TodoCreate extends Component{
             object.description = description
             this.create(object)
         }else{
-            toast.error("Por favor, Preencha Todos os Campos!")
+            toast.error("Por favor, Preencha Todos os Campos!", {position: toast.POSITION.BOTTOM_CENTER})
         }
         event.preventDefault(event)
     }
@@ -52,7 +52,7 @@ export default class TodoCreate extends Component{
     // metodo pra "criar" um objeto
     create = async(object) => {
         await Api.post("/todo/store/", object)
-        toast.success("Adicionado com Sucesso!")
+        toast.success("Adicionado com Sucesso!", {position: toast.POSITION.BOTTOM_CENTER})
         this.props.history.push('/');
     }
 
