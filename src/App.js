@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from "./components/Header"
-import "./style.css"
-import Routes from "./routes"
+import "./styles/style.css"
+import Routes from "./routes/routes"
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
